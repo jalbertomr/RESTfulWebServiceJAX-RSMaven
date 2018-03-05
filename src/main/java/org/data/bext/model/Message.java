@@ -52,4 +52,7 @@ public class Message {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public static class Profile {
+    }
 }
