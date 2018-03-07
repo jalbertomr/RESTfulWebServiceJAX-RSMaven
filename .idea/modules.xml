@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/messenger.iml" filepath="$PROJECT_DIR$/messenger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/miblog.iml" filepath="$PROJECT_DIR$/miblog.iml" />
     </modules>
   </component>
 </project>

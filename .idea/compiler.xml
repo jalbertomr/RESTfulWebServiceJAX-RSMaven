@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="messenger" />
+        <module name="miblog" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="messenger" target="1.7" />
+      <module name="miblog" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

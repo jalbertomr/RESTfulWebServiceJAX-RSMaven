@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.data.bext</groupId>
-    <artifactId>messenger</artifactId>
+    <artifactId>miblog</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>messenger</name>
 
     <build>
-        <finalName>messenger</finalName>
+        <finalName>miblog</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
