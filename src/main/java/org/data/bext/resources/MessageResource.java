@@ -1,6 +1,7 @@
 package org.data.bext.resources;
 
 import org.data.bext.model.Message;
+import org.data.bext.resources.beans.MessageFilterBean;
 import org.data.bext.service.MessageService;
 
 import javax.ws.rs.*;
@@ -14,12 +15,10 @@ public class MessageResource {
     MessageService messageService = new MessageService();
 
     @GET
-    public List<Message> getMessages(@QueryParam("year") int year,
-                                     @QueryParam("start") int start,
-                                     @QueryParam("size") int size) {
-        if (year > 0 ) return messageService.getAllMessageForYear(year);
-        if (start >= 0 && size > 0) {
-            return messageService.getAllMessagePaginated(start, size);
+    public List<Message> getMessages(@BeanParam MessageFilterBean filterBean) {
+        if (filterBean.getYear() > 0 ) return messageService.getAllMessageForYear(filterBean.getYear());
+        if (filterBean.getStart() >= 0 && filterBean.getSize() > 0) {
+            return messageService.getAllMessagePaginated(filterBean.getStart(), filterBean.getSize());
         }
         return messageService.getAllMessages();
     }
@@ -47,4 +46,11 @@ public class MessageResource {
     public Message getMessage(@PathParam("messageId") long Id) {
         return messageService.getMessage(Id);
     }
+
+    @Path("/{messageId}/comentarios")
+    public CommentResource getCommentResource() {
+        return new CommentResource();
+    }
+
+
 }
