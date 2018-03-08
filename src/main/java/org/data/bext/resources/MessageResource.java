@@ -3,9 +3,12 @@ package org.data.bext.resources;
 import org.data.bext.model.Message;
 import org.data.bext.resources.beans.MessageFilterBean;
 import org.data.bext.service.MessageService;
+import org.glassfish.jersey.server.Uri;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @Path("/mensajes")
@@ -24,8 +27,13 @@ public class MessageResource {
     }
 
     @POST
-    public Message addMessage(Message message) {
-        return messageService.addMessage(message);
+    public Response addMessage(Message message, @Context UriInfo uriInfo) throws URISyntaxException{
+        Message newMessage = messageService.addMessage(message);
+        String newMessageId = String.valueOf(newMessage.getId());
+        URI uri = uriInfo.getAbsolutePathBuilder().path(newMessageId).build();
+        return  Response.created(uri)
+                .entity(newMessage)
+                .build();
     }
 
     @PUT
