@@ -1,6 +1,7 @@
 package org.data.bext.service;
 
 import org.data.bext.database.DatabaseClass;
+import org.data.bext.exception.DataNotFoundException;
 import org.data.bext.model.Message;
 
 import javax.ws.rs.QueryParam;
@@ -49,7 +50,11 @@ public class MessageService {
     }
 
     public Message getMessage(long id) {
-        return messages.get(id);
+        Message message = messages.get(id);
+        if( message == null ){
+            throw new DataNotFoundException("mensaje con Id = " + id + " no existe.");
+        }
+        return message;
     }
 
     public Message addMessage(Message message) {

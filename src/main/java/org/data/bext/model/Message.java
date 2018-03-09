@@ -1,7 +1,10 @@
 package org.data.bext.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @XmlRootElement
 public class Message {
@@ -9,6 +12,7 @@ public class Message {
     private String message;
     private Date created;
     private String author;
+    private Map<Long,Comment> comments = new HashMap<>();
 
     public Message() {
         //usado por conversores de json
@@ -53,6 +57,12 @@ public class Message {
         this.author = author;
     }
 
-    public static class Profile {
+    @XmlTransient    //Que sea ignorado para XML conversion para que no se traigan los commentarios
+    public Map<Long, Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Map<Long, Comment> comments) {
+        this.comments = comments;
     }
 }

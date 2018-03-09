@@ -26,6 +26,6 @@ public class InjectDemoResource {
     public String getParamUsingContext(@Context UriInfo uriInfo, @Context HttpHeaders headers) {
         String path = uriInfo.getAbsolutePath().toString();
         String cookies = headers.getCookies().toString();
-        return "Path: " + path + "Cookies: " + cookies;
+        return "Path: " + path + " Cookies: " + cookies;
     }
 }
