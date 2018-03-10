@@ -7,7 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-//@Path("/")    //Path en subresources no es necesario aqui
+@Path("/")    //Path en subresources no es necesario aqui, pero para objener su .path(Class,String) si es necesario
 public class CommentResource {
     CommentService commentService = new CommentService();
 
