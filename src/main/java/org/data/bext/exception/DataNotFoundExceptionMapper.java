@@ -6,7 +6,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-//@Provider  deshabilitamos el mapper para probar WebApplicationException de jersey
+@Provider  //deshabilitamos el mapper para probar WebApplicationException de jersey
 public class DataNotFoundExceptionMapper implements ExceptionMapper<DataNotFoundException> {
     @Override
     public Response toResponse(DataNotFoundException e) {
